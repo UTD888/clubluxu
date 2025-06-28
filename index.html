@@ -8,6 +8,54 @@
     * {
       box-sizing: border-box;
     }
+#qrPopup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 12px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease;
+}
+
+#qrPopup img {
+  height: 120px;
+  width: 120px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#qrPopup button {
+  background: #f44336;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#showQRBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 998;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
 
     body, html {
       margin: 0;
@@ -100,7 +148,25 @@
 
     // เปิดอัตโนมัติแท็บแรก
     window.onload = () => showTab('https://utd888.github.io/luxu-insurance/', buttons[0]);
-  </script>
+    function hideQR() {
+  document.getElementById('qrPopup').style.display = 'none';
+  document.getElementById('showQRBtn').style.display = 'block';
+}
 
+function showQR() {
+  document.getElementById('qrPopup').style.display = 'flex';
+  document.getElementById('showQRBtn').style.display = 'none';
+}
+
+  </script>
+<div id="qrPopup">
+  <a href="https://line.me/ti/g2/RRy1ow2SUKqGouAYf0xYuTFBoFWg3yoJf-li3g" target="_blank">
+    <img src="QrCode.jpg" alt="Line Group QR Code">
+  </a>
+  <button onclick="hideQR()">❌</button>
+</div>
+
+<!-- ✅ Floating Button -->
+<button id="showQRBtn" onclick="showQR()">📱 Join Us Line Open Chat</button>
 </body>
 </html>
