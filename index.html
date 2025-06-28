@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club LUXU</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #f0f2f5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #232526, #414345);
+      color: white;
+      padding: 20px 30px;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    header img {
+      height: 45px;
+    }
+
+    .tab-container {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+
+    .tab-container button {
+      flex: 1;
+      padding: 14px 16px;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-container button:hover {
+      background: #f7f9fb;
+    }
+
+    .tab-container button.active {
+      color: #007bff;
+      font-weight: bold;
+      border-bottom: 3px solid #007bff;
+      background: #f1f6ff;
+    }
+
+    iframe {
+      flex: 1;
+      border: none;
+      width: 100%;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="luxu-logo.png" alt="Club Luxu Logo">
+    CLUB LUXU
+  </header>
+
+  <div class="tab-container">
+    <button onclick="showTab('https://utd888.github.io/luxu-insurance/', this)">🧮 Insurance</button>
+    <button onclick="showTab('https://utd888.github.io/Registration/', this)">📝 Tournament Registration</button>
+    <button onclick="showTab('https://utd888.github.io/livegame/ranking.html', this)">🏆 Live Game Ranking</button>
+    <button onclick="showTab('https://utd888.github.io/tour/tour-history.html', this)">📊 Tournament Ranking</button>
+    <button onclick="showTab('https://utd888.github.io/hihand/', this)">💥 Bonus High Hand</button> 
+  </div>
+
+  <iframe id="viewer" src=""></iframe>
+
+  <script>
+    const viewer = document.getElementById("viewer");
+    const buttons = document.querySelectorAll(".tab-container button");
+
+    function showTab(url, btn) {
+      viewer.src = url;
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    // เปิดอัตโนมัติแท็บแรก
+    window.onload = () => showTab('https://utd888.github.io/luxu-insurance/', buttons[0]);
+  </script>
+
+</body>
+</html>
